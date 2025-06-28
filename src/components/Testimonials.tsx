@@ -41,25 +41,25 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="relative py-8 md:py-12 lg:py-20 bg-black overflow-hidden">
+    <section className="relative py-6 sm:py-8 md:py-12 lg:py-20 bg-black overflow-hidden">
       <BackgroundGlow colorFrom="#6b3a1a" colorTo="#1a0e05" />
-      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-4 md:px-6">
         {/* Header */}
-        <div className="text-center mb-8 md:mb-12 lg:mb-20 animate-fade-in">
-          <div className="inline-flex items-center gap-2 mb-3 md:mb-4 lg:mb-6 px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-white/5 to-white/3 rounded-full border border-white/10">
-            <Star className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 fill-yellow-400" />
-            <span className="text-white/70 text-xs md:text-sm font-medium">Client Testimonials</span>
+        <div className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-20 animate-fade-in">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 md:mb-4 lg:mb-6 px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 bg-gradient-to-r from-white/5 to-white/3 rounded-full border border-white/10">
+            <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 text-yellow-400 fill-yellow-400" />
+            <span className="text-white/70 text-xs sm:text-xs md:text-sm font-medium">Client Testimonials</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4 lg:mb-8 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent leading-tight px-2">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-8 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent leading-tight px-1 sm:px-2">
             What Our Clients Say
           </h2>
-          <p className="text-gray-400 text-sm md:text-base lg:text-xl max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-gray-400 text-xs sm:text-sm md:text-base lg:text-xl max-w-3xl mx-auto leading-relaxed px-2 sm:px-4">
             Discover why industry leaders trust us to elevate their Web3 presence and drive exceptional results
           </p>
         </div>
         
         {/* Project Showcase Component */}
-        <div className="mb-8 md:mb-12 lg:mb-16 animate-fade-in" style={{ animationDelay: '400ms' }}>
+        <div className="mb-6 sm:mb-8 md:mb-12 lg:mb-16 animate-fade-in" style={{ animationDelay: '400ms' }}>
           <ProjectShowcase
             testimonials={testimonials}
             autoplay={true}
@@ -69,20 +69,20 @@ const Testimonials = () => {
               testimony: "#e5e7eb"
             }}
             fontSizes={{
-              name: "18px",
-              position: "12px", 
-              testimony: "14px"
+              name: "20px",
+              position: "14px", 
+              testimony: "16px"
             }}
             mobile={{
               fontSizes: {
                 name: "16px",
-                position: "11px",
-                testimony: "13px"
+                position: "12px",
+                testimony: "14px"
               },
               spacing: {
-                nameBottom: "4px",
-                positionBottom: "8px",
-                testimonyTop: "12px"
+                nameBottom: "2px",
+                positionBottom: "6px",
+                testimonyTop: "8px"
               }
             }}
             spacing={{
@@ -99,16 +99,16 @@ const Testimonials = () => {
               nextButton: "Next", 
               openWebAppButton: "View Case Study"
             }}
-            desktopVersionBottomThreshold={768}
+            desktopVersionBottomThreshold={640}
           />
         </div>
         
         {/* Bottom section */}
         <div className="text-center animate-fade-in" style={{ animationDelay: '600ms' }}>
-          <div className="inline-flex flex-col md:flex-row items-center gap-3 px-4 md:px-6 lg:px-8 py-3 md:py-4 bg-gradient-to-r from-white/8 via-white/5 to-white/8 rounded-xl md:rounded-2xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 group max-w-full">
-            <div className="flex -space-x-1 md:-space-x-2">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-3 md:py-4 bg-gradient-to-r from-white/8 via-white/5 to-white/8 rounded-lg sm:rounded-xl md:rounded-2xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 group max-w-full mx-2 sm:mx-0">
+            <div className="flex -space-x-0.5 sm:-space-x-1 md:-space-x-2">
               {clientLogos.map((logo, index) => (
-                <div key={index} className="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 rounded-full border-2 border-white/20 overflow-hidden bg-white/10 flex-shrink-0">
+                <div key={index} className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 rounded-full border border-white/20 sm:border-2 overflow-hidden bg-white/10 flex-shrink-0">
                   <img 
                     src={logo} 
                     alt={`Client ${index + 1}`}
@@ -117,10 +117,10 @@ const Testimonials = () => {
                 </div>
               ))}
             </div>
-            <span className="text-white/80 font-semibold text-xs md:text-sm lg:text-base text-center">Trusted by 50+ leading Web3 brands</span>
-            <div className="flex gap-0.5 md:gap-1">
+            <span className="text-white/80 font-semibold text-xs sm:text-sm lg:text-base text-center">Trusted by 50+ leading Web3 brands</span>
+            <div className="flex gap-0.5 sm:gap-1">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 fill-yellow-400" />
+                <Star key={i} className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 text-yellow-400 fill-yellow-400" />
               ))}
             </div>
           </div>
