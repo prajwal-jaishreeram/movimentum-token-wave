@@ -81,7 +81,7 @@ export const ProjectShowcase = ({
     testimonyTop: "1em",
     testimonyBottom: "1em"
   },
-  desktopVersionBottomThreshold = 1024,
+  desktopVersionBottomThreshold = 768,
   mobile = {},
   imageAspectRatio = 1.37,
   isRTL = false,
@@ -176,7 +176,7 @@ export const ProjectShowcase = ({
   return (
     <div
       ref={componentRef}
-      className={`w-full mx-auto antialiased font-sans py-${currentSpacing.top} pb-${currentSpacing.bottom}`}
+      className={`w-full mx-auto antialiased font-sans py-2 sm:py-4 md:py-6 lg:py-8 pb-2 sm:pb-4 md:pb-6 lg:pb-8`}
       style={{
         lineHeight: currentSpacing.lineHeight,
         backgroundColor: "transparent",
@@ -192,13 +192,17 @@ export const ProjectShowcase = ({
             : isRTL
             ? "1fr 1fr"
             : "1fr 1fr",
-          gap: `${calculateGap(componentWidth)}px`
+          gap: isMobileView ? "16px" : `${calculateGap(componentWidth)}px`
         }}
       >
-        <div className="w-full">
+        <div className="w-full px-1 sm:px-0">
           <div
             className="relative"
-            style={{ paddingTop: `${(1 / imageAspectRatio) * 100}%` }}
+            style={{ 
+              paddingTop: isMobileView 
+                ? `${(1 / 1.2) * 100}%` 
+                : `${(1 / imageAspectRatio) * 100}%` 
+            }}
           >
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
@@ -232,8 +236,8 @@ export const ProjectShowcase = ({
                   <ImageContainer
                     src={testimonial.src}
                     alt={testimonial.name}
-                    outerRounding={outerRounding}
-                    innerRounding={innerRounding}
+                    outerRounding={isMobileView ? "6px" : outerRounding}
+                    innerRounding={isMobileView ? "4px" : innerRounding}
                     outlineColor={outlineColor}
                     hoverOutlineColor={hoverOutlineColor}
                   />
@@ -242,13 +246,14 @@ export const ProjectShowcase = ({
             </AnimatePresence>
           </div>
         </div>
-        <div className="flex justify-between flex-col py-4 w-full">
+        <div className="flex justify-between flex-col py-2 sm:py-4 w-full px-1 sm:px-0">
           <motion.div
             key={active}
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
+            className="mb-4 sm:mb-6"
           >
             <h3
               className={`font-bold`}
@@ -301,14 +306,12 @@ export const ProjectShowcase = ({
             </motion.p>
           </motion.div>
           <div
-            className={`flex gap-4 ${
-              isMobileView ? "pt-12" : "md:pt-0"
-            } w-full`}
+            className={`flex gap-2 sm:gap-3 md:gap-4 w-full`}
           >
             <HalomotButton
               inscription={buttonInscriptions.previousButton}
               onClick={handlePrev}
-              fixedWidth="172px"
+              fixedWidth={isMobileView ? "120px" : "140px"}
               gradient="linear-gradient(135deg, #4a5568, #2d3748)"
               backgroundColor="#000000"
               textColor="#ffffff"
@@ -319,7 +322,7 @@ export const ProjectShowcase = ({
             <HalomotButton
               inscription={buttonInscriptions.nextButton}
               onClick={handleNext}
-              fixedWidth="172px"
+              fixedWidth={isMobileView ? "120px" : "140px"}
               gradient="linear-gradient(135deg, #4a5568, #2d3748)"
               backgroundColor="#000000"
               textColor="#ffffff"
