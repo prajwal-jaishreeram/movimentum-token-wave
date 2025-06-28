@@ -1,4 +1,4 @@
-import Particles from './Particles';
+
 import { BackgroundGlow } from "@/components/ui/background-glow";
 
 const CaseStudies = () => {
@@ -20,8 +20,6 @@ const CaseStudies = () => {
   return (
     <section className="relative py-20 bg-black overflow-hidden">
       <BackgroundGlow colorFrom="#6b3a1a" colorTo="#1a0e05" />
-      {/* Particles background */}
-      {/* Removed Particles component */}
       
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         <div className="space-y-32">

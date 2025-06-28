@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -23,7 +24,7 @@ const HoverButton = React.forwardRef<HTMLButtonElement, HoverButtonProps>(
     const createCircle = React.useCallback((x: number, y: number) => {
       const buttonWidth = buttonRef.current?.offsetWidth || 0
       const xPos = x / buttonWidth
-      const color = `linear-gradient(to right, var(--circle-start) ${xPos * 100}%, var(--circle-end) ${xPos * 100}%)`
+      const color = `linear-gradient(to right, #a0d9f8 ${xPos * 100}%, #3a5bbf ${xPos * 100}%)`
 
       setCircles((prev) => [
         ...prev,
@@ -101,10 +102,6 @@ const HoverButton = React.forwardRef<HTMLButtonElement, HoverButtonProps>(
         onPointerEnter={handlePointerEnter}
         onPointerLeave={handlePointerLeave}
         {...props}
-        style={{
-          "--circle-start": "var(--tw-gradient-from, #a0d9f8)",
-          "--circle-end": "var(--tw-gradient-to, #3a5bbf)",
-        }}
       >
         {circles.map(({ id, x, y, color, fadeState }) => (
           <div
@@ -131,4 +128,4 @@ const HoverButton = React.forwardRef<HTMLButtonElement, HoverButtonProps>(
 
 HoverButton.displayName = "HoverButton"
 
-export { HoverButton } 
+export { HoverButton }
