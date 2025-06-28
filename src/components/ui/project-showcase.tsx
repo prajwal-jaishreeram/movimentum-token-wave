@@ -63,6 +63,7 @@ type ProjectShowcaseProps = {
   halomotButtonOuterBorderRadius?: string;
   halomotButtonInnerBorderRadius?: string;
   halomotButtonHoverTextColor?: string;
+  buttonSpacing?: string;
 };
 
 export const ProjectShowcase = ({
@@ -100,7 +101,8 @@ export const ProjectShowcase = ({
   halomotButtonTextColor = "#fff",
   halomotButtonOuterBorderRadius = "6.34px",
   halomotButtonInnerBorderRadius = "6px",
-  halomotButtonHoverTextColor
+  halomotButtonHoverTextColor,
+  buttonSpacing = "8px"
 }: ProjectShowcaseProps) => {
   const [active, setActive] = useState(0);
   const [isMobileView, setIsMobileView] = useState(false);
@@ -192,7 +194,7 @@ export const ProjectShowcase = ({
             : isRTL
             ? "1fr 1fr"
             : "1fr 1fr",
-          gap: isMobileView ? "16px" : `${calculateGap(componentWidth)}px`
+          gap: isMobileView ? "12px" : `${calculateGap(componentWidth)}px`
         }}
       >
         <div className="w-full px-1 sm:px-0">
@@ -200,7 +202,7 @@ export const ProjectShowcase = ({
             className="relative"
             style={{ 
               paddingTop: isMobileView 
-                ? `${(1 / 1.2) * 100}%` 
+                ? `${(1 / 1.1) * 100}%` 
                 : `${(1 / imageAspectRatio) * 100}%` 
             }}
           >
@@ -306,12 +308,15 @@ export const ProjectShowcase = ({
             </motion.p>
           </motion.div>
           <div
-            className={`flex gap-2 sm:gap-3 md:gap-4 w-full`}
+            className={`flex w-full`}
+            style={{
+              gap: isMobileView ? buttonSpacing : "12px"
+            }}
           >
             <HalomotButton
               inscription={buttonInscriptions.previousButton}
               onClick={handlePrev}
-              fixedWidth={isMobileView ? "120px" : "140px"}
+              fixedWidth={isMobileView ? "110px" : "140px"}
               gradient="linear-gradient(135deg, #4a5568, #2d3748)"
               backgroundColor="#000000"
               textColor="#ffffff"
@@ -322,7 +327,7 @@ export const ProjectShowcase = ({
             <HalomotButton
               inscription={buttonInscriptions.nextButton}
               onClick={handleNext}
-              fixedWidth={isMobileView ? "120px" : "140px"}
+              fixedWidth={isMobileView ? "110px" : "140px"}
               gradient="linear-gradient(135deg, #4a5568, #2d3748)"
               backgroundColor="#000000"
               textColor="#ffffff"

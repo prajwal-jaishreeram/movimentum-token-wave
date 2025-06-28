@@ -100,6 +100,7 @@ const Testimonials = () => {
               openWebAppButton: "View Case Study"
             }}
             desktopVersionBottomThreshold={768}
+            buttonSpacing="16px"
           />
         </div>
         
