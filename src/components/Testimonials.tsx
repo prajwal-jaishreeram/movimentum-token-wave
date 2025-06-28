@@ -1,3 +1,4 @@
+
 import { ProjectShowcase } from "@/components/ui/project-showcase";
 import { Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -40,25 +41,25 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="relative py-12 md:py-20 bg-black overflow-hidden">
+    <section className="relative py-8 md:py-12 lg:py-20 bg-black overflow-hidden">
       <BackgroundGlow colorFrom="#6b3a1a" colorTo="#1a0e05" />
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-20 animate-fade-in">
-          <div className="inline-flex items-center gap-2 mb-4 md:mb-6 px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-white/5 to-white/3 rounded-full border border-white/10">
+        <div className="text-center mb-8 md:mb-12 lg:mb-20 animate-fade-in">
+          <div className="inline-flex items-center gap-2 mb-3 md:mb-4 lg:mb-6 px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-white/5 to-white/3 rounded-full border border-white/10">
             <Star className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 fill-yellow-400" />
             <span className="text-white/70 text-xs md:text-sm font-medium">Client Testimonials</span>
           </div>
-          <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-8 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4 lg:mb-8 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent leading-tight px-2">
             What Our Clients Say
           </h2>
-          <p className="text-gray-400 text-base md:text-xl max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-gray-400 text-sm md:text-base lg:text-xl max-w-3xl mx-auto leading-relaxed px-4">
             Discover why industry leaders trust us to elevate their Web3 presence and drive exceptional results
           </p>
         </div>
         
         {/* Project Showcase Component */}
-        <div className="mb-12 md:mb-16 animate-fade-in" style={{ animationDelay: '400ms' }}>
+        <div className="mb-8 md:mb-12 lg:mb-16 animate-fade-in" style={{ animationDelay: '400ms' }}>
           <ProjectShowcase
             testimonials={testimonials}
             autoplay={true}
@@ -68,9 +69,21 @@ const Testimonials = () => {
               testimony: "#e5e7eb"
             }}
             fontSizes={{
-              name: "20px",
-              position: "14px", 
-              testimony: "16px"
+              name: "18px",
+              position: "12px", 
+              testimony: "14px"
+            }}
+            mobile={{
+              fontSizes: {
+                name: "16px",
+                position: "11px",
+                testimony: "13px"
+              },
+              spacing: {
+                nameBottom: "4px",
+                positionBottom: "8px",
+                testimonyTop: "12px"
+              }
             }}
             spacing={{
               nameBottom: "6px",
@@ -86,15 +99,16 @@ const Testimonials = () => {
               nextButton: "Next", 
               openWebAppButton: "View Case Study"
             }}
+            desktopVersionBottomThreshold={768}
           />
         </div>
         
         {/* Bottom section */}
         <div className="text-center animate-fade-in" style={{ animationDelay: '600ms' }}>
-          <div className="inline-flex flex-col md:flex-row items-center gap-3 px-4 md:px-8 py-3 md:py-4 bg-gradient-to-r from-white/8 via-white/5 to-white/8 rounded-xl md:rounded-2xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 group">
-            <div className="flex -space-x-2">
+          <div className="inline-flex flex-col md:flex-row items-center gap-3 px-4 md:px-6 lg:px-8 py-3 md:py-4 bg-gradient-to-r from-white/8 via-white/5 to-white/8 rounded-xl md:rounded-2xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 group max-w-full">
+            <div className="flex -space-x-1 md:-space-x-2">
               {clientLogos.map((logo, index) => (
-                <div key={index} className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-white/20 overflow-hidden bg-white/10">
+                <div key={index} className="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 rounded-full border-2 border-white/20 overflow-hidden bg-white/10 flex-shrink-0">
                   <img 
                     src={logo} 
                     alt={`Client ${index + 1}`}
@@ -103,8 +117,8 @@ const Testimonials = () => {
                 </div>
               ))}
             </div>
-            <span className="text-white/80 font-semibold text-sm md:text-base">Trusted by 50+ leading Web3 brands</span>
-            <div className="flex gap-1">
+            <span className="text-white/80 font-semibold text-xs md:text-sm lg:text-base text-center">Trusted by 50+ leading Web3 brands</span>
+            <div className="flex gap-0.5 md:gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 fill-yellow-400" />
               ))}
