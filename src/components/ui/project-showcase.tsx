@@ -308,7 +308,7 @@ export const ProjectShowcase = ({
             </motion.p>
           </motion.div>
           <div
-            className={`flex w-full`}
+            className={`flex w-full ${isMobileView ? 'justify-center' : ''}`}
             style={{
               gap: isMobileView ? buttonSpacing : "12px"
             }}
